@@ -6,6 +6,10 @@ camel:
   springboot:
     name: ServicesRest
 #    main-run-controller: true
+  component:
+    servlet:
+      mapping:
+        contextPath: '/api/*'
 
 logging:
   level:
