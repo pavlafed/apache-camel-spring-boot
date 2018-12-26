@@ -10,7 +10,8 @@ server:
 camel:
   springboot:
     name: ServicesRest
-#    main-run-controller: true
+    main-run-controller: true
+    jmx-enabled: false
   component:
     servlet:
       mapping:
@@ -18,6 +19,9 @@ camel:
   cloud:
     service-call:
       component: http4
+  rest:
+    component: servlet
+    binding-mode: json
 
 eureka:
   client:
