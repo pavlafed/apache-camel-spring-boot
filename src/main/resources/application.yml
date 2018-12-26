@@ -1,6 +1,11 @@
 spring:
+  application:
+    name: camel-api-gateway
   main:
     sources: net.pavlafed.camelapigateway.CamelApiGatewayApplication
+
+server:
+  port: 8090
 
 camel:
   springboot:
@@ -10,6 +15,18 @@ camel:
     servlet:
       mapping:
         contextPath: '/api/*'
+  cloud:
+    service-call:
+      component: http4
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}
+  instance:
+    preferIpAddress: true
 
 logging:
   level:
