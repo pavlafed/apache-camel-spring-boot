@@ -14,9 +14,6 @@ public class SwaggerConfig extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         restConfiguration()
-                //.component("netty4-http")
-                //.component("servlet")
-                //.bindingMode(RestBindingMode.json)
                 .contextPath("/api")
                 .apiProperty("basePath", "/api")
                 .enableCORS(true)
