@@ -1,12 +1,16 @@
 package net.pavlafed.camelapigateway.config;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.model.rest.RestBindingMode;
 import org.apache.camel.model.rest.RestHostNameResolver;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SwaggerConfig extends RouteBuilder {
+
+    @Value("${server.port:8080}")
+    int port;
+
     @Override
     public void configure() throws Exception {
         restConfiguration()
@@ -16,7 +20,7 @@ public class SwaggerConfig extends RouteBuilder {
                 .contextPath("/api")
                 .apiProperty("basePath", "/api")
                 .enableCORS(true)
-                .port(8080)
+                .port(port)
                 .hostNameResolver(RestHostNameResolver.localHostName)
                 .apiContextPath("/swagger")
                 .apiProperty("api.title", "Example API")

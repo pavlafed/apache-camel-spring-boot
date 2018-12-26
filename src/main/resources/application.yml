@@ -11,7 +11,7 @@ camel:
   springboot:
     name: ServicesRest
     main-run-controller: true
-    jmx-enabled: false
+    #jmx-enabled: false
   component:
     servlet:
       mapping:

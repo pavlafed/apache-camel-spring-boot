@@ -12,6 +12,7 @@ public class ServiceCallConfig extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         rest("/serviceCall")
+                .consumes("application/json").produces("application/json")
                 .verb("GET")
                 .route()
                 .serviceCall("camel-api-gateway/api/hello?bridgeEndpoint=true", "http4:camel-api-gateway/api/hello?bridgeEndpoint=true")
