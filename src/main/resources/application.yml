@@ -25,12 +25,22 @@ camel:
 
 eureka:
   client:
-    healthcheck:
-      enabled: true
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}
-  instance:
-    preferIpAddress: true
+    enabled: false
+#eureka:
+#  client:
+#    healthcheck:
+#      enabled: true
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://localhost:8081/eureka}
+#  instance:
+#    preferIpAddress: true
+ribbon:
+  eureka:
+    enabled: false
+
+camel-api-gateway:
+  ribbon:
+    listOfServers: localhost:8090
 
 logging:
   level:
